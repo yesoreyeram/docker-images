@@ -13,6 +13,7 @@ python-cairo \
 python-django \
 libffi-dev
 
+# Graphite dependencies
 RUN pip install cffi \
 fadvise==4.0.0 \
 Twisted>=13.2.0 \
