@@ -2,8 +2,10 @@ FROM phusion/baseimage:0.9.15
 
 MAINTAINER Sriramajeyam Sugumaran <yesoreyeram@gmail.com>
 
+# System updates
 RUN apt-get -y update
 
+# Dependencies
 RUN apt-get -y --force-yes install git \
 python-dev \
 python-pip \
@@ -29,8 +31,10 @@ whitenoise \
 scandir \
 urllib3
 
+# Setup
 RUN export PYTHONPATH="/opt/graphite/lib/:/opt/graphite/webapp/"
 
+# Install
 RUN pip install https://github.com/graphite-project/whisper/tarball/master
 RUN pip install https://github.com/graphite-project/carbon/tarball/master
 RUN pip install https://github.com/graphite-project/graphite-web/tarball/master
