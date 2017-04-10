@@ -36,5 +36,7 @@ RUN export PYTHONPATH="/opt/graphite/lib/:/opt/graphite/webapp/"
 
 # Install
 RUN pip install https://github.com/graphite-project/whisper/tarball/master
+
 RUN pip install https://github.com/graphite-project/carbon/tarball/master
+
 RUN pip install https://github.com/graphite-project/graphite-web/tarball/master
