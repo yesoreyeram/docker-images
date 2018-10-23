@@ -1,0 +1,26 @@
+FROM jetbrains/teamcity-minimal-agent
+
+LABEL maintainer="Sriramajeyam Sugumaran"
+
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN apt-get update --yes
+RUN apt-get install --yes --no-install-recommends apt-utils
+RUN apt-get install --yes --no-install-recommends git 
+RUN apt-get install --yes --no-install-recommends gcc
+RUN apt-get install --yes --no-install-recommends g++ 
+RUN apt-get install --yes --no-install-recommends make
+RUN apt-get install --yes --no-install-recommends ruby
+RUN apt-get install --yes --no-install-recommends ruby-dev 
+RUN apt-get install --yes --no-install-recommends ruby-bundler
+RUN apt-get install --yes --no-install-recommends libc++-dev 
+RUN apt-get install --yes --no-install-recommends obs-build
+RUN apt-get install --yes --no-install-recommends rpm
+RUN gem install bundler
+RUN gem install r10k
+RUN gem install fpm -v 1.10.0
+RUN gem install deep_merge
+
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+ENV DEBIAN_FRONTEND teletype
